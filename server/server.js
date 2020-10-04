@@ -53,6 +53,11 @@ io.on("connection", function (socket) {
   socket.on("/rank", (data) => {
     let { name } = data;
     let channel = CHANNEL_USER[name];
+
+    if (!channel) {
+      socket.emit("/fail", { status: 200, msg: "잘못된 유저입니다." });
+      return;
+    }
     CHANNEL_DATA[channel].addScore(data);
 
     socket.emit("/rank/complete", {
@@ -65,6 +70,12 @@ io.on("connection", function (socket) {
   socket.on("/chat", (data) => {
     let { name } = data;
     let channel = CHANNEL_USER[name];
+
+    if (!channel) {
+      socket.emit("/fail", { status: 200, msg: "잘못된 유저입니다." });
+      return;
+    }
+
     CHANNEL_DATA[channel].addScore(data);
 
     socket.emit("/chat/complete", {
