@@ -6,14 +6,14 @@ const Channel = require("./data/channel");
 const Chat = require("./data/chat");
 const Score = require("./data/score");
 
-const PORT = 3000;
+const PORT = 5000;
 
 const CHANNEL_USER = {}; // 유저가 어느 채널에 접속됐는지에 대한 정보
 const CHANNEL_DATA = {}; // 채널별로 가지고 있는 채널객체
 
 // 채널은 ch.숫자 형태로 관리한다.
 // 1~4번까지 4개의 채널을 만들어줍니다.
-for (let i = i; i < 5; ++i) {
+for (let i = 1; i < 5; ++i) {
   const score = new Score();
   const chat = new Chat();
   const channel = new Channel(score, chat);

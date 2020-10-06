@@ -7,8 +7,8 @@ import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
 
 import Reducer from "./State";
-
 import Routes from "./Router";
+import Socket from "./Socket";
 
 import "./App.css";
 
@@ -21,6 +21,9 @@ const store = createStore(
     )
   )
 );
+
+// 소켓 객체에 스토어 생성
+Socket.setStore(store);
 
 function App() {
   return (
