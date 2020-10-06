@@ -22,7 +22,7 @@ const store = createStore(
   )
 );
 
-// 소켓 객체에 스토어 생성
+// 소켓 객체에 스토어 주입
 Socket.setStore(store);
 
 function App() {
