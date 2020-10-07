@@ -17,6 +17,7 @@ function getUrlParams() {
 const Game = (props) => {
   let [level, setLevel] = useState(0);
   let [chat, setChat] = useState("");
+
   let { chats = [], scores = [] } = useSelector((s) => ({
     chats: s.Chat.chats,
     scores: s.Score.scores,
@@ -34,14 +35,14 @@ const Game = (props) => {
 
   return (
     <>
-      <div>
+      <div id="game-board">
         <div>
           <h2>{level}</h2>
           <button onClick={() => setLevel(level + 1)}>+</button>
           <button onClick={() => setLevel(level - 1)}>-</button>
         </div>
         <div>
-          <button onClick={rank}>Ranking Registration</button>
+          <button onClick={rank}>Register</button>
         </div>
       </div>
 

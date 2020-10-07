@@ -6,12 +6,12 @@ import { onChannelInit } from "../State/modules/channel";
 
 const SOCKET = {
   IP: "127.0.0.1",
-  PORT: "3000",
+  PORT: "5000",
 };
 
 class Socket {
   constructor() {
-    this.URL = `http://${SOCKET.IP}:${SOCKET.PORT}?data=KRW-BTC`;
+    this.URL = `http://${SOCKET.IP}:${SOCKET.PORT}`;
     this.socket = io(this.URL);
 
     this.store = null;
@@ -50,7 +50,7 @@ class Socket {
   onGameData() {
     this.socket.on("/channel/complete", (data) => {
       let { chats, scores } = data;
-
+      console.log(data);
       this.store.dispatch(onScoreInit(scores));
       this.store.dispatch(onChatInit(chats));
     });
